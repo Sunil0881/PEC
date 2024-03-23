@@ -2,7 +2,7 @@ import abi from "../src/Abi/abi.json";
 import { ethers } from "ethers";
 import Web3 from "web3";
 
-const COMMERCE_CONTRACT = "0xDF9Ed074F9405E7C840A2cc64cB345E73eE73f66";
+const COMMERCE_CONTRACT = "0x97E72c16AC4175B5E4129B6D66FD41a781dBeC8f";
 
 const isBrowser = () => typeof window !== "undefined";
 const { ethereum } = isBrowser();
@@ -32,7 +32,7 @@ export const GETALLPRODUCTS =async () => {
     }
 }
 
-export const ADDPRODUCTS= async ({ productName, category, description, price  }) => {
+export const ADDPRODUCTS= async ({ productName, category, description, price,  downloadURLString }) => {
   try {
     const provider =
       window.ethereum != null
@@ -41,10 +41,27 @@ export const ADDPRODUCTS= async ({ productName, category, description, price  })
 
     const signer = provider.getSigner();
     const Role = new ethers.Contract(COMMERCE_CONTRACT, abi, signer);
-    const tokenId = await Role.addProduct(productName, category, description, price );
+    const tokenId = await Role.addProduct(productName, category, description, price, downloadURLString );
     alert('Product places Successfully!');
     return tokenId;
   } catch (error) {
     console.error('Error selling product:', error);
+  }   
+}
+
+export const BUYPRODUCT= async ({ Product_ID }) => {
+  try {
+    const provider =
+      window.ethereum != null
+        ? new ethers.providers.Web3Provider(window.ethereum)
+        : ethers.providers.getDefaultProvider();
+
+    const signer = provider.getSigner();
+    const Role = new ethers.Contract(COMMERCE_CONTRACT, abi, signer);
+    const tokenId = await Role.buyProduct( Product_ID );
+    alert('Product Buyed!');
+    return tokenId;
+  } catch (error) {
+    console.error('Error purchasing product:', error);
   }   
 }

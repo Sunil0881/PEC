@@ -20,6 +20,11 @@
 				"internalType": "uint256",
 				"name": "_price",
 				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_downloadURL",
+				"type": "string"
 			}
 		],
 		"name": "addProduct",
@@ -49,7 +54,6 @@
 				"name": "disputeId",
 				"type": "uint256"
 			}
-            
 		],
 		"name": "DisputeRaised",
 		"type": "event"
@@ -216,6 +220,11 @@
 						"type": "uint256"
 					},
 					{
+						"internalType": "string",
+						"name": "downloadURL",
+						"type": "string"
+					},
+					{
 						"internalType": "enum Marketplace.ProductState",
 						"name": "state",
 						"type": "uint8"
@@ -281,6 +290,11 @@
 				"internalType": "uint256",
 				"name": "price",
 				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "downloadURL",
+				"type": "string"
 			},
 			{
 				"internalType": "enum Marketplace.ProductState",

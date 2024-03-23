@@ -33,13 +33,13 @@ const Button = () => {
     <WagmiProvider config={config}>
     <QueryClientProvider client={queryClient}>
       <RainbowKitProvider >
-      <div className='flex justify-between px-6 py-3 bg-green-300 items-center'>
-        <h1 className='text-2xl lg:text-3xl font-semibold'>Crypto Commerce..</h1>
+      <div className='flex justify-between px-6 py-3 bg-transparent top-0 z-50 fixed shadow-2xl w-full backdrop-filter backdrop-blur-lg bg-opacity-20 items-center font-serif'>
+        <h1 className='text-2xl lg:text-3xl'>Crypto Commerce..</h1>
         <div className='flex pl-48 '>
-          <Link to="/" className='font-semibold text-lg pl-80'>Home</Link>
-          <Link to="/" className='font-semibold text-lg pl-10'>About</Link>
-          <Link to="/buy" className='font-semibold text-lg pl-10'>Buy</Link>
-          <Link to="/sell" className='font-semibold text-lg pl-10'>Sell</Link>
+          <Link to="/" className='text-lg pl-80'>Home</Link>
+          <Link to="/" className='text-lg pl-10'>About</Link>
+          <Link to="/buy" className='text-lg pl-10'>Buy</Link>
+          <Link to="/sell" className='text-lg pl-10'>Sell</Link>
         </div>
         <div>
          <ConnectButton />
